@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git credentialsId: 'github-pat', url: 'https://github.com/MUQEETh1233/book-review-about.git'
+                git branch: 'main', url: 'https://github.com/MUQEETh1233/book-review-about.git', credentialsId: 'github-pat'
             }
         }
         stage('Build Docker Image') {
