@@ -7,7 +7,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main',
-                    url: 'https://github.com/amthul/book-review-about.git',
+                    url: 'https://github.com/MUQEETh1233/book-review-about.git',
                     credentialsId: 'github-pat'
             }
         }
