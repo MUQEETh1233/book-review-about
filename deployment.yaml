@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bookreview-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bookreview
+  template:
+    metadata:
+      labels:
+        app: bookreview
+    spec:
+      containers:
+      - name: bookreview
+        image: amthul/bookreview-app:latest
+        ports:
+        - containerPort: 5000
