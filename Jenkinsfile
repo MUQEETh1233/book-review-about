@@ -2,13 +2,12 @@ pipeline {
     agent any
     environment {
         DOCKERHUB = 'amthul/bookreview-app'
+        KUBECONFIG = 'C:\\Users\\Administrator\\.kube\\config'
     }
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main',
-                    url: 'https://github.com/MUQEETh1233/book-review-about.git',
-                    credentialsId: 'github-pat'
+                git credentialsId: 'github-pat', url: 'https://github.com/MUQEETh1233/book-review-about.git'
             }
         }
         stage('Build Docker Image') {
