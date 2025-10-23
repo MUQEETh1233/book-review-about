@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Book Review</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='test.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h2>Book Review Portal</h2>
+    <a href="/about">About</a>
+    <form method="post" action="/add">
+      <label>Name:</label>
+      <input name="name" type="text" required>
+      <label>Book:</label>
+      <input name="book" type="text" required>
+      <label>Review:</label>
+      <input name="review" type="text" required>
+      <button type="submit">Add Review</button>
+    </form>
+    <hr>
+    <h3>All Reviews</h3>
+    {% if reviews %}
+      {% for r in reviews %}
+        <p><b>{{ r.name }}</b> reviewed <i>{{ r.book }}</i>: {{ r.review }}</p>
+      {% endfor %}
+    {% else %}
+      <p>No reviews yet.</p>
+    {% endif %}
+  </div>
+</body>
+</html>
